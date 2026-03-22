@@ -7,6 +7,7 @@
     </head>
     <body>
         <?="<h1>Hello, Welcome DAW Student!</h1>";?>
+        <a href="index.php?accion=agregar">Agregar Alumnado</a>
         <div class="container-fluid">
             <?='<table class="table table-striped">';?>
             <?='<thead><tr><th>id</th><th>name</th></tr></thead>';?>

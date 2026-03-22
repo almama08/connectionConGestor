@@ -11,10 +11,19 @@ class GestorPDO extends Connection{
         $rtdo=$this->getConn()->query($consulta);
         $arrayPersonas=[];
         while($value=$rtdo->fetch(PDO::FETCH_ASSOC)){
-            $persona=new Persona($value['id'],$value['name']);
+            $persona=new Persona($value['name'],$value['id']);
             $arrayPersonas[]=$persona;
         }
         return $arrayPersonas;
+    }
+
+    public function agregar(Persona $persona){
+        $sql='INSERT INTO Person (name) VALUES (:nombre)';
+        $stmt=$this->conn->prepare($sql);
+
+        $stmt->bindValue(':nombre',$persona->getNombre());
+
+        return $stmt->execute();
     }
 }
 ?>

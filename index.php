@@ -4,6 +4,22 @@
     $gestor=new GestorPDO();
     $controller=new Controller($gestor);
 
-    //consulta de datos
-    $controller->index();
+    $accion=$_GET['accion'] ?? 'index';
+
+    switch($accion){
+        case 'editar':
+
+            break;
+        case 'eliminar':
+
+            break;
+        case 'eliminar':
+
+            break;
+        case 'agregar':
+            $controller->agregar();
+            break;
+        default:
+            $controller->index();
+    }
 ?>
