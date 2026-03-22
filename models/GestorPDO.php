@@ -20,9 +20,14 @@ class GestorPDO extends Connection{
     public function agregar(Persona $persona){
         $sql='INSERT INTO Person (name) VALUES (:nombre)';
         $stmt=$this->conn->prepare($sql);
-
         $stmt->bindValue(':nombre',$persona->getNombre());
+        return $stmt->execute();
+    }
 
+    public function eliminar($id){
+        $sql='DELETE FROM Person WHERE id=:id';
+        $stmt=$this->conn->prepare($sql);
+        $stmt->bindValue(':id',$id);
         return $stmt->execute();
     }
 }

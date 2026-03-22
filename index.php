@@ -11,10 +11,7 @@
 
             break;
         case 'eliminar':
-
-            break;
-        case 'eliminar':
-
+            $controller->eliminar();
             break;
         case 'agregar':
             $controller->agregar();

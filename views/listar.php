@@ -10,12 +10,19 @@
         <a href="index.php?accion=agregar">Agregar Alumnado</a>
         <div class="container-fluid">
             <?='<table class="table table-striped">';?>
-            <?='<thead><tr><th>id</th><th>name</th></tr></thead>';?>
+            <?='<thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>';?>
             <?php
                 foreach($arrayPersonas as $persona){
                     echo '<tr>';
                     echo '<td>' . $persona->getId() . '</td>';
                     echo '<td>' . $persona->getNombre() . '</td>';
+                    echo '<td><a href=index.php?accion=eliminar&id=' . $persona->getId() . '>Eliminar</a></td>';
                     echo '</tr>';
                 }
                 echo '</table>';
