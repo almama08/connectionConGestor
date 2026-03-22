@@ -17,16 +17,23 @@
                         <th>Opciones</th>
                     </tr>
                 </thead>';?>
-            <?php
-                foreach($arrayPersonas as $persona){
-                    echo '<tr>';
-                    echo '<td>' . $persona->getId() . '</td>';
-                    echo '<td>' . $persona->getNombre() . '</td>';
-                    echo '<td><a href=index.php?accion=eliminar&id=' . $persona->getId() . '>Eliminar</a></td>';
-                    echo '</tr>';
-                }
-                echo '</table>';
-            ?>
+            <?php foreach($arrayPersonas as $persona):?>
+                    <tr>
+                        <td><?=$persona->getId()?></td>
+                        <td><?=$persona->getNombre()?></td>
+
+                        <td>
+                            <!--Botón editar-->
+                            <form method="POST" action="index.php?accion=editar" style="display:inline;">
+                                <input type="hidden" name="id" value="<?=$persona->getId()?>">
+                                Nombre: <input type="text" name="nombre" value="<?=$persona->getNombre()?>" required>
+                                <button type="submit">Guardar</button>
+                                <!--Botón eliminar-->
+                                <td><a href="index.php?accion=eliminar&id=<?=$persona->getId()?>">Eliminar</a></td>
+                            </form>
+                        </td>
+                    </tr>
+            <?php endforeach ?>
         </div>
     </body>
 </html>

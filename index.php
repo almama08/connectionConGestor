@@ -8,7 +8,7 @@
 
     switch($accion){
         case 'editar':
-
+            $controller->editar();
             break;
         case 'eliminar':
             $controller->eliminar();
